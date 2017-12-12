@@ -1,0 +1,46 @@
+/* ============================================
+
+	Variables
+
+=============================================== */
+
+@color-primary:							#FFCC00;
+@color-secondary:           darken(#f0977b, 5%);
+@color-button: 							@color-primary;
+
+@color-bg: 									#2B2B2B;
+@color-bg-alt: 							#282106;
+
+@color-text:								#272106;
+@color-text-reverse:				#ffffff;
+
+@color-border:							tint(@color-primary, 40%);
+
+// type
+@base-line-height:					20/16;
+
+// grid setup
+
+@column-count:							2;
+@gutter-width:							20;
+@gutter: 										@gutter-width/2;
+
+
+// screen sizes
+
+@screen-tablet:							620px;
+@screen-desktop:						820px;
+@screen-wide:								820px;
+@screen-xwide:							820px;
+
+@tablet-min:								700px;
+@desktop-min:								940px;
+@wide-min:									1100px;
+
+@mobile:										~"only screen and (max-width:  699px)";
+@mobile-landscape:					~"only screen and (max-width:  699px) and (orientation: landscape)";
+@tablet:										~"only screen and (min-width:  700px)";
+@desktop:										~"only screen and (min-width:  940px)";
+@wide:											~"only screen and (min-width: 1100px)";
+@xwide:											~"only screen and (min-width: 1260px)";
+

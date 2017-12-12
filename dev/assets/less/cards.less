@@ -1,0 +1,218 @@
+/* ============================================
+
+  Cards
+
+=============================================== */
+
+@card-height: unit(540 / 16, rem);
+
+// vue transitions
+
+.scale-fade-enter-active {
+  transition: opacity 0.75s, transform 0.75s cubic-bezier(0.4, 0.6, 0.2, 1);
+}
+.scale-fade-enter, .scale-fade-leave {
+  transform: scale(0.925);
+  opacity: 0;
+}
+
+
+// cards
+
+.cards {
+  padding: floor(unit(@gutter * 2, px)) 0;
+  opacity: 0;
+  // loaded state
+  &.loaded {
+    opacity: 1;
+    transition: opacity .75s;
+  }
+
+  .card {
+    .relative;
+    .noselect;
+    cursor: pointer;
+    margin-bottom: @45px;
+
+    @media @desktop {
+      margin-bottom: floor(unit(@gutter * 2, px));
+    }
+
+
+    &.column {
+      width: 100%;
+      @media @desktop { width: unit(100/2, %); }
+    }
+
+    .card-flip-icon {
+      .absolute;
+      top: 0;
+      left: 50%;
+      transform: translate( -50%, unit(-30 / 16, rem) );
+      background: url('~assets/img/icon_flip.svg') transparent no-repeat 50% 50%;
+      background-size: cover;
+      width: unit(60 / 16, rem);
+      height: unit(60 / 16, rem);
+      .circle;
+      z-index: 20;
+
+      transition: opacity 1.25s 0.5s;
+
+      @media @tablet {
+        .hidden;
+      }
+    }
+
+
+    .card__wrapper {
+      .relative;
+      height: @card-height;
+      perspective: 900px;
+      transform-style: preserve-3d;
+      box-shadow: 0 -@1px @2px darken(@color-bg, 3%);
+
+      max-width: unit(420 / 16, rem);
+      margin: 0 auto;
+
+      @media @desktop {
+        max-width: none;
+      }
+
+      .card__front,
+      .card__back {
+        .absolute;
+        width: 100%;
+        height: 100%;
+
+        transform-origin: 50%;
+
+        backface-visibility: hidden;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.3, 1);
+
+        header {
+          min-height: unit(75 / 16, rem);
+          h2,
+          h3 {
+            margin: 0;
+          }
+        }
+
+      }
+
+
+      // front of card
+
+      .card__front {
+        .text-center;
+        background: @color-primary;
+        transform: rotateY(0deg);
+        z-index: 2;
+
+        header {
+          .absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translate(-50%, 0);
+          width: 100%;
+          padding: @30px @30px @45px;
+
+          h2 {
+            border-bottom: @1px solid darken(@color-primary, 12.5%);
+            margin: 0 auto @9px;
+          }
+
+          p {
+            .font-sm;
+          }
+        }
+
+        .image {
+          .absolute;
+          top: 20%;
+          left: 50%;
+          transform: translate(-50%, -25%);
+          img {
+            tranform-origin: 176px 176px;
+            transform: scale(0.67);
+            transition: transform 1.5s cubic-bezier(0.4, 0.6, 0.2, 1);
+          }
+        }
+
+        @media @desktop {
+          &:hover {
+            .image {
+              img {
+                transform: scale(0.75);
+                transition: transform 0.6s cubic-bezier(0.4, 0.6, 0.2, 1);
+              }
+            }
+          }
+        }
+      }
+
+      // back of card
+
+      .card__back {
+        transform: rotateY(180deg);
+        background: @color-bg-alt;
+        color: @color-text-reverse;
+
+
+        header {
+          color: @color-text;
+          background-color: @color-primary;
+          padding: @6px @6px 0;
+          margin-bottom: @30px;
+
+          @media @tablet {
+            margin-bottom: @39px;
+          }
+
+          .image {
+            .float-left;
+            margin: -@6px @18px 0 0;
+          }
+          h3 {
+            margin: @9px 0 0;
+          }
+
+        }
+
+        .content {
+          .clear-row;
+          > p,
+          > blockquote {
+            padding-left: @24px;
+            padding-right: @24px;
+            @media @tablet {
+              padding-left: @45px;
+              padding-right: @60px;
+            }
+          }
+          > blockquote {
+            padding-left: @15px;
+            @media @tablet {
+              padding-left: @33px;
+            }
+          }
+        }
+
+      }
+    }
+
+
+    // flip card on class change
+    &.flipped {
+      z-index: 10;
+      .card__wrapper {
+       .card__front { transform: rotateY(-180deg);}
+       .card__back { transform: rotateY(0deg); }
+      }
+
+      .card-flip-icon {
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+    }
+  }
+}

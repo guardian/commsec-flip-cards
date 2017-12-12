@@ -1,0 +1,183 @@
+/* ============================================
+
+	Type
+
+=============================================== */
+
+.font-xxxl        	{ .font-size(51); @media @tablet { .font-size(60); } }
+.font-xxl         	{ .font-size(33); }
+.font-xl 						{ .font-size(27); }
+.font-lg 						{ .font-size(21); }
+.font-md 						{ .font-size(18); }
+.font-base        	{ .font-size(16); }
+.font-sm 						{ .font-size(14); line-height: @base-line-height * 1.125; }
+.font-xs 						{ .font-size(12); line-height: @base-line-height * 1.125; }
+
+.font-normal 				{ font-family: 'DS3-Regular', 'Helvetica Neue', sans-serif; i, em { font-family: 'DS3-Italic', 'DS3-Regular', 'Helvetica Neue', sans-serif; } }
+.font-normal-italic	{ font-family: 'DS3-Italic', 'DS3-Regular', 'Helvetica Neue', sans-serif; }
+.font-medium 				{ font-family: 'DS5-Semibold', 'Helvetica Neue', sans-serif; }
+
+.font-icon					{ font-family: 'FontAwesome'; font-weight: 400; .space(0); .keepcase; }
+
+
+/* ============================================
+
+	Headings
+
+=============================================== */
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+	.font-normal;
+	margin: 0;
+}
+
+h1, .h1,
+h2, .h2 {
+	.font-xxxl;
+  .font-medium;
+	line-height: 1.25;
+	margin-bottom: @12px;
+}
+
+
+h3, .h3 {
+	.font-xxl;
+  .font-medium;
+  line-height: 1;
+	margin-bottom: @12px;
+}
+
+h4, .h4 {
+  .font-xl;
+  .font-medium;
+  line-height: 1;
+  margin-bottom: @12px;
+}
+
+
+
+// sizes for long form type
+p,
+.paragraph {
+	.font-normal;
+	margin: 0 0 @15px;
+}
+
+	p + ul,
+	p + ol,
+	p + table,
+	p + dl {
+		margin: @24px 0 @33px;
+	}
+
+	p + h2 		{ margin-top: unit( 24 / 16, rem); }
+	p + h3 		{ margin-top: unit( 24 / 16, rem); }
+	p + h4 		{ margin-top: unit( 24 / 16, rem); }
+
+b, strong {
+	.font-medium;
+}
+
+
+small {
+	.font-sm;
+}
+
+cite {
+	.font-sm;
+	font-style: normal;
+	color: lighten(@color-text, 30%);
+	font-weight: 400;
+	&:before {
+		content: '– '
+	}
+}
+
+/* ============================================
+
+	Lists
+
+=============================================== */
+
+ul, ol {
+	margin: 0 0 @30px;
+	padding: 0 0 0 @24px;
+	li {
+		margin: 0 0 @15px;
+		padding: 0;
+	}
+}
+
+
+/* ============================================
+
+	Anchors
+
+=============================================== */
+
+a {
+	&:link 		{ color: inherit; text-decoration: none; }
+	&:visited { color: inherit; }
+	&:hover 	{ color: inherit; }
+	&:active 	{ color: inherit; }
+}
+
+/* ============================================
+
+	Lists
+
+=============================================== */
+
+
+ul, ol {
+	margin: 1rem 0;
+	padding: 0 0 0 2rem;
+	li {
+		margin: 0 0 0.25rem;
+		padding: 0 0 0 0.25rem;
+	}
+}
+
+
+/* ============================================
+
+	Buttons
+
+=============================================== */
+
+.button {
+	.relative;
+	.inline-block;
+	.font-base;
+	.font-medium;
+	.text-center;
+	.border-box;
+	.round(24);
+	color: @color-text !important;
+	margin: 0 @6px @9px;
+	background-color: @color-button;
+
+	padding: @12px @24px;
+	outline: none;
+}
+
+
+/* ============================================
+
+	Quotes
+
+=============================================== */
+
+blockquote {
+	.border-box;
+	.space(-0.02);
+  background-color: tint(@color-bg-alt, 10%);
+  border-left: @12px solid @color-primary;
+  padding-top: @9px;
+  padding-bottom: @9px;
+
+	margin: 0 0 @15px;
+	font-style: normal;
+
+}
