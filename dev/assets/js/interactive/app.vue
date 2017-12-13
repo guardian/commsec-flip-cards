@@ -14,10 +14,9 @@ main
         .cta.column
           h4 What's next?
           p
-            | For more information on opening a share trading account and what CommSec offers, go to
-            a(href="https://www.commsec.com.au/why-join-commsec/choosing-an-online-broker.html")  https://www.commsec.com.au/why-join-commsec/choosing-an-online-broker.html
+            | For more information on opening a share trading account and what CommSec offers
           p
-            a.button(href="https://www.commsec.com.au/why-join-commsec/choosing-an-online-broker.html") Find out more
+            a.button(href="https://www.commsec.com.au/why-join-commsec/choosing-an-online-broker.html" target="_top") Find out more
 
         .disclaimer.column
           p Disclaimer: As this information has been prepared without taking into account your objectives, financial situation or needs you should, before acting on this information, consider its appropriateness for your objectives, financial situation or needs and, if necessary, seek appropriate professional advice.
